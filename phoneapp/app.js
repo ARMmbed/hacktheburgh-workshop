@@ -15,6 +15,9 @@ Credits:
  */
 var app = {};
 
+// firebase base reference
+var ref = new Firebase("https://hackburgdemo.firebaseio.com/");
+
 /**
  * Name of device to connect to.
  */
@@ -57,6 +60,29 @@ app.onDeviceReady = function()
 		app.deviceName = name;
 	}
 	$('#deviceName').val(app.deviceName);
+
+	ref.child("leds").child("led0").on('value', function(dataSnapshot) {
+		console.log(dataSnapshot.val());
+
+		if (app.device != null) {
+			app.device.readCharacteristic(
+			'0000a001-0000-1000-8000-00805f9b34fb',
+			function(data)
+			{
+				var view = new Uint8Array(data);
+				var state = dataSnapshot.val();
+				if ((state == "on"  && view[0] == app.ledOFF) ||
+						(state == "off" && view[0] == app.ledON ))
+				{
+					app.onToggleButton()
+				}
+			},
+			function(error)
+			{
+				console.log('Error: Read characteristic failed: ' + error);
+			});
+		}
+	});
 };
 
 /**
@@ -163,8 +189,6 @@ app.onConnectButton = function()
 	app.showInfo('Status: Scanning...');
 };
 
-var ref = new Firebase("https://hackburgdemo.firebaseio.com/");
-
 /**
  * Toggle the LED on/off.
  */
@@ -176,7 +200,7 @@ app.onToggleButton = function()
 		{
 			var view = new Uint8Array(data);
 			var led = new Uint8Array(1);
-			var state = "on";
+			var state = "off";
 			if(view[0] == app.ledON)
 			{
 				$('#toggleButton').removeClass('green');
@@ -185,10 +209,10 @@ app.onToggleButton = function()
 			}
 			else if (view[0] == app.ledOFF)
 			{
-				state = "off";
 				$('#toggleButton').removeClass('red');
 				$('#toggleButton').addClass('green');
 				led[0] = app.ledON;
+				state = "on";
 			}
 			app.device.writeCharacteristic(
 				'0000a002-0000-1000-8000-00805f9b34fb',
