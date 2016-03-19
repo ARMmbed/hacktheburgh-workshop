@@ -1,7 +1,9 @@
 # HackTheBurgh ARM mbed Workshop
+<img src="https://developer.mbed.org/static/img/armmbed.png" width="250px">
 
 ## Get yourself a dev board
 Come see the guys in ARM t-shirts and we can loan you a set of hardware. Remember to fillout the register sheet.
+
 1. [Seeed Tiny BLE](https://developer.mbed.org/platforms/Seeed-Tiny-BLE/) with built in BLE, 6 DOF accelerometer/gyro and RGB LED. OR
 1. [ST NUCLEO-F401RE Board](https://developer.mbed.org/platforms/ST-Nucleo-F401RE/) + [X-NUCLEO-IDB04A1 Bluetooth Low Energy Shield](https://developer.mbed.org/components/X-NUCLEO-IDB04A1/) + [ST MEMS Sensor Shield](https://developer.mbed.org/teams/ST-Americas-mbed-Team/wiki/Getting-Started-with-Nucleo-Sensors).
 
@@ -11,10 +13,11 @@ Come see the guys in ARM t-shirts and we can loan you a set of hardware. Remembe
 3. Sign up to an [Firebase](https://www.firebase.com/) account and create a demo database you are going to use.
 
 ## Get Started
-The demo have 3 parts.
+The demo have 3 parts:
+
 1. App that runs on the dev board.
 2. App that runs on the Mobile phone that controls an LED on the dev board via BLE
-3. An webapp that controls the LED romotely via the phone
+3. A webapp that controls the LED romotely via the phone
 
 ### App that runs on the dev board
 1. Goto the example program [here](https://developer.mbed.org/teams/Bluetooth-Low-Energy/code/BLE_GATT_Example/). Click `import this program` on the top right. This should open up your online compiler.
