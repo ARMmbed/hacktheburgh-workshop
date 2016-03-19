@@ -41,7 +41,8 @@ The demo have 3 parts:
 1. Edit [webapp/js/app.json#L4](https://github.com/ARMmbed/hacktheburgh-workshop/blob/master/webapp/js/app.js#L4). Change the firebase database URL to the one you created ealier.
 2. Make sure your dev board is now connected to your phone. Open webapp/index.html from a browser, click the button to see the LED change.
 
-# Hack Away
+## Hack Away
 * Come talk to us about what you want to build. We have more dev boards and sensors and we can help you figure out what to do.
 * For more information about mbed, see the developer [website](https://developer.mbed.org/teams/Bluetooth-Low-Energy/).
 * More BLE examples can be found [here](https://developer.mbed.org/teams/Bluetooth-Low-Energy/).
+* Tweet at us with @ARMmbed #ARM #mbed and show what you have built with our product.
